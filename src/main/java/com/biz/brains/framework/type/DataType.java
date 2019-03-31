@@ -1,5 +1,6 @@
 package com.biz.brains.framework.type;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -9,6 +10,8 @@ public enum DataType {
 	AUTO_NUMBER("autonumber",String.class,"varchar","String"),
 	TEXT("text",String.class,"varchar","String"),
 	BOOLEAN("boolean",Boolean.class,"varchar","Boolean"),
+	DATE("date",LocalDate.class,"date","Date"),
+	FLOAT("float",Float.class,"float","Float"),
 	TIMESTAMP_WITH_TIME_ZONE("timestamp with timezone",LocalDateTime.class,"timestamp with time zone","Timestamp");
 	
 	public String key;

@@ -14,4 +14,6 @@ public class ForiegnKeyEntity {
 	private boolean primary;
 	
 	private String tableName;
+	
+	private String referenceCol;
 }

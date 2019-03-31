@@ -1,5 +1,6 @@
 package com.biz.brains.framework.generator;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.LinkedList;
@@ -48,6 +49,7 @@ public class BatchSetterGenerator {
 		IntStream.range(0, metaDataEntities.size()).forEach(idx->{
 			StringBuilder psB=new StringBuilder();
 			boolean flag=getResultSet(metaDataEntities.get(idx))=="Timestamp";
+			boolean flag1=getResultSet(metaDataEntities.get(idx))=="Date";
 			psB.append("ps.set").append(getResultSet(metaDataEntities.get(idx)))
 			.append("(")
 			.append(idx+1)
@@ -55,10 +57,16 @@ public class BatchSetterGenerator {
 			if(flag) {
 				psB.append("Timestamp.valueOf(");
 			}
+			if(flag1) {
+				psB.append("Date.valueOf(");
+			}
 			psB.append("dto.get")
 			.append(NameUtils.getCamelName(metaDataEntities.get(idx).getColumnName()))
 			.append("()");
 			if(flag) {
+				psB.append(")");
+			}
+			if(flag1) {
 				psB.append(")");
 			}
 			psB.append(");\n");
@@ -93,6 +101,7 @@ public class BatchSetterGenerator {
 		stringBuilder.append("import "+java.sql.PreparedStatement.class.getCanonicalName()+";\n");
 		stringBuilder.append("import "+SQLException.class.getCanonicalName()+";\n");
 		stringBuilder.append("import "+Timestamp.class.getCanonicalName()+";\n");
+		stringBuilder.append("import "+Date.class.getCanonicalName()+";\n");
 		stringBuilder.append("import "+LinkedList.class.getCanonicalName()+";\n");
 		stringBuilder.append("import "+List.class.getCanonicalName()+";\n");
 		stringBuilder.append("\n");

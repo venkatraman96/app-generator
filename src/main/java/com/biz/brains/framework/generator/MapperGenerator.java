@@ -64,6 +64,9 @@ public class MapperGenerator {
 			if(entity.getDataType().mapper=="Timestamp") {
 				content=content+".toLocalDateTime()";
 			}
+			if(entity.getDataType().mapper=="Date") {
+				content=content+".toLocalDate()";
+			}
 			content=content+");\n";
 			stringBuilder.append(GeneratorUtils.indent(content,1));
 		});

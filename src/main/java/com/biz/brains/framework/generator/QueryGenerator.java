@@ -54,11 +54,11 @@ public class QueryGenerator {
 						foriegnKeyEntities.get(idx).getColumnName()
 						+"_fkey"
 						)
-				.append(" FORIEGN KEY ("+foriegnKeyEntities.get(idx).getColumnName()+")");
+				.append(" FOREIGN KEY ("+foriegnKeyEntities.get(idx).getReferenceCol()+")");
 				
 				queryStringBuilder.append("\n\t\t")
-				.append("REFERENCES ")
-				.append("(").append(foriegnKeyEntities.get(idx).getColumnName()).append(")")
+				.append("REFERENCES ").append(foriegnKeyEntities.get(idx).getTableName())
+				.append(" (").append(foriegnKeyEntities.get(idx).getColumnName()).append(")")
 				.append(" MATCH")
 				.append(" SIMPLE");//FIXME HARD CODE
 				

@@ -1,5 +1,6 @@
 package com.biz.brains.framework.generator;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
@@ -41,6 +42,7 @@ public class DtoGenerator {
 		stringBuilder.append("package "+GeneratorUtils.generateDtoPackageName(filePath)+";\n");
 		stringBuilder.append("\n");
 		stringBuilder.append("import "+LocalDateTime.class.getCanonicalName()+";\n");
+		stringBuilder.append("import "+LocalDate.class.getCanonicalName()+";\n");
 		stringBuilder.append("\n");
 		stringBuilder.append("import "+Data.class.getCanonicalName()+";\n");
 		stringBuilder.append("\n");
